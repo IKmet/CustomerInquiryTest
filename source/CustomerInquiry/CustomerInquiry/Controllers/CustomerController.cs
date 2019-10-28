@@ -5,9 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace CustomerInquiry.Controllers {
+
   [Route("api/[controller]")]
   [ApiController]
   public class CustomerController : Controller {
+
     private readonly ICustomerInfoProvider customerInfoProvider;
 
     public CustomerController(ICustomerInfoProvider customerInfoProvider) {

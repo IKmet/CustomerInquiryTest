@@ -4,7 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
 namespace CustomerInquiry.ActionFilters {
+
   public class CustomerInquiryFilter : IActionFilter {
+
     private const string NullRequestMessage = "No inquiry criteria";
 
     public void OnActionExecuting(ActionExecutingContext context) {

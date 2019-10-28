@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Logging;
 
 namespace CustomerInquiry {
+
   public class Program {
+
     public static void Main(string[] args) {
       CreateWebHostBuilder(args).Build().Run();
     }

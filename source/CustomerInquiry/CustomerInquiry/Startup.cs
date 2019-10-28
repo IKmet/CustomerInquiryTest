@@ -11,7 +11,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CustomerInquiry {
+
   public class Startup {
+
     public Startup(IHostingEnvironment env, IConfiguration conf) {
       this.Configuration = conf;
 
