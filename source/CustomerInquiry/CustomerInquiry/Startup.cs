@@ -45,8 +45,11 @@ namespace CustomerInquiry {
         app.UseDeveloperExceptionPage();
       }
 
+      app.UseFileServer();
+      app.UseMvcWithDefaultRoute();
+
       app.Run(async (context) => {
-        await context.Response.WriteAsync("Hello World!");
+        await context.Response.WriteAsync("Initial message");
       });
     }
   }
