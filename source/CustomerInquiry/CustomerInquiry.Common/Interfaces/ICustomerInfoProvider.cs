@@ -3,6 +3,6 @@ using System.Threading.Tasks;
 
 namespace CustomerInquiry.Common.Interfaces {
   public interface ICustomerInfoProvider {
-    Task<IEnumerable<Common.DTO.Customer>> GetRecentCustomerTransactions(Common.DTO.CustomerBase customer);
+    Task<IEnumerable<Common.DTO.Customer>> GetRecentCustomerTransactions(Common.DTO.CustomerInquiryCriteria customer);
   }
 }

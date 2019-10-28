@@ -1,7 +1,8 @@
-﻿using CustomerInquiry.Common.DTO;
+﻿using CustomerInquiry.ActionFilters;
+using CustomerInquiry.Common.DTO;
 using CustomerInquiry.Common.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace CustomerInquiry.Controllers {
@@ -16,8 +17,20 @@ namespace CustomerInquiry.Controllers {
 
     [Route("recenttransactions")]
     [HttpPost]
-    public async Task<IEnumerable<Customer>> GetRecentCustomerTransactions([FromBody] CustomerBase customerRequest) {
-      return await customerInfoProvider.GetRecentCustomerTransactions(customerRequest);
+    [ServiceFilter(typeof(CustomerInquiryFilter))]
+    public async Task<IActionResult> GetRecentCustomerTransactions([FromBody] CustomerInquiryCriteria customerRequest) {
+      try {
+        var result = await customerInfoProvider.GetRecentCustomerTransactions(customerRequest);
+        if (result != null && result.Any()) {
+          return Ok(result);
+        }
+        else {
+          return NotFound();
+        }
+      }
+      catch {
+        return BadRequest();
+      }
     }
   }
 }

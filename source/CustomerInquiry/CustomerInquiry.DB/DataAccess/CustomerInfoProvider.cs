@@ -15,7 +15,7 @@ namespace CustomerInquiry.DB.DataAccess {
       this.context = context;
     }
 
-    public async Task<IEnumerable<Common.DTO.Customer>> GetRecentCustomerTransactions(Common.DTO.CustomerBase customer) {
+    public async Task<IEnumerable<Common.DTO.Customer>> GetRecentCustomerTransactions(Common.DTO.CustomerInquiryCriteria customer) {
       var customers = context.Customers.AsQueryable();
 
       if (customer.Id != default) {

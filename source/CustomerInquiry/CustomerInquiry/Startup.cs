@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CustomerInquiry.ActionFilters;
 using CustomerInquiry.Common.Interfaces;
 using CustomerInquiry.DB;
 using CustomerInquiry.DB.DataAccess;
@@ -35,7 +36,10 @@ namespace CustomerInquiry {
       services.AddDbContext<CustomerContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+      services.AddTransient<CustomerInquiryFilter>();
+
       services.AddTransient<ICustomerInfoProvider, CustomerInfoProvider>();
+
       services.AddMvc();
     }
 

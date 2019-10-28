@@ -6,7 +6,7 @@ namespace CustomerInquiry.DB.Models {
   public class Customer {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public long Id { get; set; }
+    public int Id { get; set; }
 
     [MaxLength(30)]
     public string Name { get; set; }
@@ -14,7 +14,7 @@ namespace CustomerInquiry.DB.Models {
     [MaxLength(25)]
     public string Email { get; set; }
 
-    public long MobileNumber { get; set; }
+    public int MobileNumber { get; set; }
 
     public ICollection<Transaction> Transactions { get; set; }
   }
