@@ -18,7 +18,8 @@ namespace CustomerInquiry.ActionFilters {
       }
 
       if (!context.ModelState.IsValid) {
-        context.Result = new BadRequestObjectResult(context.ModelState.Values.Select(v => v.Errors[0].ErrorMessage));
+        //in case of multiple model state errors, all will be shown
+        context.Result = new BadRequestObjectResult(context.ModelState);
       }
     }
 

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 namespace CustomerInquiry.DB.DataAccess {
   public class CustomerInfoProvider : ICustomerInfoProvider {
     private const int AmountRecentTransactions = 5;
+    private const int MobileNumberLength = 10;
 
     private readonly CustomerContext context;
     private readonly IMapper mapper;
@@ -32,7 +33,7 @@ namespace CustomerInquiry.DB.DataAccess {
           Id = res.Id,
           Name = res.Name,
           Email = res.Email,
-          MobileNumber = res.MobileNumber,
+          MobileNumber = res.MobileNumber.ToString($"D{MobileNumberLength}"),
           Transactions = res.Transactions
             .OrderByDescending(t => t.DateTime)
             .Take(AmountRecentTransactions)

@@ -8,7 +8,7 @@ namespace CustomerInquiry.Common.DTO {
 
     public string Name { get; set; }
 
-    public long MobileNumber { get; set; }
+    public string MobileNumber { get; set; }
 
     public IEnumerable<Transaction> Transactions { get; set; }
   }
