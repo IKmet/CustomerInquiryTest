@@ -16,7 +16,7 @@ namespace CustomerInquiry.DB.Models {
     [MaxLength(25)]
     public string Email { get; set; }
 
-    public int MobileNumber { get; set; }
+    public long MobileNumber { get; set; }
 
     public ICollection<Transaction> Transactions { get; set; }
   }
