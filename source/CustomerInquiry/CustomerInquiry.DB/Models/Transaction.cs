@@ -15,7 +15,7 @@ namespace CustomerInquiry.DB.Models {
     [Column(TypeName = "decimal(18, 2)")]
     public decimal Amount { get; set; }
 
-    public CurrencyCode Code { get; set; }
+    public CurrencyCode Currency { get; set; }
 
     public Status Status { get; set; }
 

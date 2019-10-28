@@ -9,7 +9,7 @@ namespace CustomerInquiry.Common.DTO {
 
     public decimal Amount { get; set; }
 
-    public CurrencyCode Code { get; set; }
+    public CurrencyCode Currency { get; set; }
 
     public Status Status { get; set; }
   }

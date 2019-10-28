@@ -4,14 +4,16 @@ using CustomerInquiry.DB;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CustomerInquiry.DB.Migrations
 {
     [DbContext(typeof(CustomerContext))]
-    partial class CustomerContextModelSnapshot : ModelSnapshot
+    [Migration("20191028200051_CustomerCurrencyCorrection")]
+    partial class CustomerCurrencyCorrection
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
