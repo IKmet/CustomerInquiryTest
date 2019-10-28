@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using CustomerInquiry.Common.DTO;
 using System.Threading.Tasks;
 
 namespace CustomerInquiry.Common.Interfaces {
+
   public interface ICustomerInfoProvider {
-    Task<IEnumerable<Common.DTO.Customer>> GetRecentCustomerTransactions(Common.DTO.CustomerInquiryCriteria customer);
+  
+    Task<Customer> GetRecentCustomerTransactions(CustomerInquiryCriteria customer);
   }
 }

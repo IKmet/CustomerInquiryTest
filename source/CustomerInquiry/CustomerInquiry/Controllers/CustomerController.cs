@@ -2,7 +2,6 @@
 using CustomerInquiry.Common.DTO;
 using CustomerInquiry.Common.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace CustomerInquiry.Controllers {
@@ -21,7 +20,7 @@ namespace CustomerInquiry.Controllers {
     public async Task<IActionResult> GetRecentCustomerTransactions([FromBody] CustomerInquiryCriteria customerRequest) {
       try {
         var result = await customerInfoProvider.GetRecentCustomerTransactions(customerRequest);
-        if (result != null && result.Any()) {
+        if (result != null) {
           return Ok(result);
         }
         else {
