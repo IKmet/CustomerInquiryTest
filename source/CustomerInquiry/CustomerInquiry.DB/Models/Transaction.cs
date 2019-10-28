@@ -9,6 +9,7 @@ namespace CustomerInquiry.DB.Models {
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
 
+    [Column(TypeName = "datetime")]
     public DateTime DateTime { get; set; }
 
     [Column(TypeName = "decimal(18, 2)")]
@@ -17,5 +18,7 @@ namespace CustomerInquiry.DB.Models {
     public CurrencyCode Code { get; set; }
 
     public Status Status { get; set; }
+
+    public int CustomerId { get; set; }
   }
 }
