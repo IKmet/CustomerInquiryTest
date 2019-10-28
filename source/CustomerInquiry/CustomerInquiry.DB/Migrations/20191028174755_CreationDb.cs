@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CustomerInquiry.DB.Migrations
 {
-    public partial class initial : Migration
+    public partial class CreationDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,11 +12,11 @@ namespace CustomerInquiry.DB.Migrations
                 name: "Customers",
                 columns: table => new
                 {
-                    Id = table.Column<long>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(maxLength: 30, nullable: true),
-                    Email = table.Column<string>(maxLength: 25, nullable: true),
-                    MobileNumber = table.Column<long>(nullable: false)
+                    Name = table.Column<string>(maxLength: 30, nullable: false),
+                    Email = table.Column<string>(maxLength: 25, nullable: false),
+                    MobileNumber = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -27,13 +27,13 @@ namespace CustomerInquiry.DB.Migrations
                 name: "Transactions",
                 columns: table => new
                 {
-                    Id = table.Column<long>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    DateTime = table.Column<DateTime>(nullable: false),
+                    DateTime = table.Column<DateTime>(type: "datetime", nullable: false),
                     Amount = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
                     Code = table.Column<int>(nullable: false),
                     Status = table.Column<int>(nullable: false),
-                    CustomerId = table.Column<long>(nullable: true)
+                    CustomerId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -43,15 +43,14 @@ namespace CustomerInquiry.DB.Migrations
                         column: x => x.CustomerId,
                         principalTable: "Customers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Customers_Email",
                 table: "Customers",
                 column: "Email",
-                unique: true,
-                filter: "[Email] IS NOT NULL");
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Transactions_CustomerId",

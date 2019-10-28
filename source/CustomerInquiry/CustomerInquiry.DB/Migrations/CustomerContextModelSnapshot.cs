@@ -21,30 +21,31 @@ namespace CustomerInquiry.DB.Migrations
 
             modelBuilder.Entity("CustomerInquiry.DB.Models.Customer", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasMaxLength(25);
 
-                    b.Property<long>("MobileNumber");
+                    b.Property<int>("MobileNumber");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasMaxLength(30);
 
                     b.HasKey("Id");
 
                     b.HasIndex("Email")
-                        .IsUnique()
-                        .HasFilter("[Email] IS NOT NULL");
+                        .IsUnique();
 
                     b.ToTable("Customers");
                 });
 
             modelBuilder.Entity("CustomerInquiry.DB.Models.Transaction", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -53,9 +54,10 @@ namespace CustomerInquiry.DB.Migrations
 
                     b.Property<int>("Code");
 
-                    b.Property<long?>("CustomerId");
+                    b.Property<int>("CustomerId");
 
-                    b.Property<DateTime>("DateTime");
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("datetime");
 
                     b.Property<int>("Status");
 
@@ -70,7 +72,8 @@ namespace CustomerInquiry.DB.Migrations
                 {
                     b.HasOne("CustomerInquiry.DB.Models.Customer")
                         .WithMany("Transactions")
-                        .HasForeignKey("CustomerId");
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }
