@@ -7,10 +7,13 @@ using System.Threading.Tasks;
 
 namespace CustomerInquiry.DB.DataAccess {
   public class CustomerInfoProvider : ICustomerInfoProvider {
+
     private const int AmountRecentTransactions = 5;
+
     private const int MobileNumberLength = 10;
 
     private readonly CustomerContext context;
+
     private readonly IMapper mapper;
 
     public CustomerInfoProvider(CustomerContext context, IMapper mapper) {
