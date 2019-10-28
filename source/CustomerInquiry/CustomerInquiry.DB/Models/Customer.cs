@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -17,6 +16,6 @@ namespace CustomerInquiry.DB.Models {
 
     public long MobileNumber { get; set; }
 
-    public List<Transaction> Transactions {get; set;}
+    public ICollection<Transaction> Transactions { get; set; }
   }
 }
