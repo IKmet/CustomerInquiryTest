@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerInquiry", "Customer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerInquiry.DB", "CustomerInquiry.DB\CustomerInquiry.DB.csproj", "{02748DBD-ED40-4CCB-B936-25AF3B4AB810}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerInquiry.Common", "CustomerInquiry.Common\CustomerInquiry.Common.csproj", "{A57CACE1-706C-4DCB-AA27-A45BAEE821B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{02748DBD-ED40-4CCB-B936-25AF3B4AB810}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02748DBD-ED40-4CCB-B936-25AF3B4AB810}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02748DBD-ED40-4CCB-B936-25AF3B4AB810}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A57CACE1-706C-4DCB-AA27-A45BAEE821B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A57CACE1-706C-4DCB-AA27-A45BAEE821B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A57CACE1-706C-4DCB-AA27-A45BAEE821B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A57CACE1-706C-4DCB-AA27-A45BAEE821B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
