@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
-namespace CustomerInquiry.DB.DataAccess {
+namespace CustomerInquiry.Common.Interfaces {
   public interface ICustomerInfoProvider {
+    Task<IEnumerable<Common.DTO.Customer>> GetRecentCustomerTransactions(Common.DTO.CustomerBase customer);
   }
 }

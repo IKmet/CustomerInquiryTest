@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using CustomerInquiry.Common.Interfaces;
 using CustomerInquiry.DB;
+using CustomerInquiry.DB.DataAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -23,8 +25,7 @@ namespace CustomerInquiry {
     public IConfiguration Configuration { get; }
 
     public void ConfigureServices(IServiceCollection services) {
-      var mappingConfig = new MapperConfiguration(mc =>
-      {
+      var mappingConfig = new MapperConfiguration(mc => {
         mc.AddProfile(new MappingProfile());
       });
 
@@ -34,6 +35,7 @@ namespace CustomerInquiry {
       services.AddDbContext<CustomerContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+      services.AddTransient<ICustomerInfoProvider, CustomerInfoProvider>();
       services.AddMvc();
     }
 

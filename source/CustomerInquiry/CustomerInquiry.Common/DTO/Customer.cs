@@ -6,6 +6,6 @@ namespace CustomerInquiry.Common.DTO {
 
     public long MobileNumber { get; set; }
 
-    public IList<Transaction> Transactions { get; set; }
+    public IEnumerable<Transaction> Transactions { get; set; }
   }
 }
