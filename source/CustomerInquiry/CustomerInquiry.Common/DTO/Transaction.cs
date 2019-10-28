@@ -3,7 +3,7 @@ using System;
 
 namespace CustomerInquiry.Common.DTO {
   public class Transaction {
-    public long Id { get; set; }
+    public int Id { get; set; }
 
     public DateTime DateTime { get; set; }
 

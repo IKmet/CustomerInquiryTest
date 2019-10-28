@@ -7,7 +7,7 @@ namespace CustomerInquiry.DB.Models {
   public class Transaction {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public long Id { get; set; }
+    public int Id { get; set; }
 
     public DateTime DateTime { get; set; }
 
