@@ -4,32 +4,38 @@ using CustomerInquiry.Common.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace CustomerInquiry.Controllers {
-
+namespace CustomerInquiry.Controllers
+{
   [Route("api/[controller]")]
   [ApiController]
-  public class CustomerController : Controller {
-
+  public class CustomerController : Controller
+  {
     private readonly ICustomerInfoProvider customerInfoProvider;
 
-    public CustomerController(ICustomerInfoProvider customerInfoProvider) {
+    public CustomerController(ICustomerInfoProvider customerInfoProvider)
+    {
       this.customerInfoProvider = customerInfoProvider;
     }
 
     [Route("recenttransactions")]
     [HttpPost]
     [ServiceFilter(typeof(CustomerInquiryFilter))]
-    public async Task<IActionResult> GetRecentCustomerTransactions([FromBody] CustomerInquiryCriteria customerRequest) {
-      try {
+    public async Task<IActionResult> GetRecentCustomerTransactions([FromBody] CustomerInquiryCriteria customerRequest)
+    {
+      try
+      {
         var result = await customerInfoProvider.GetRecentCustomerTransactions(customerRequest);
-        if (result != null) {
+        if (result != null)
+        {
           return Ok(result);
         }
-        else {
+        else
+        {
           return NotFound();
         }
       }
-      catch {
+      catch
+      {
         return BadRequest();
       }
     }

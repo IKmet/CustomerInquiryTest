@@ -2,13 +2,14 @@
 using CustomerInquiry.DB.Enums;
 using System;
 
-namespace CustomerInquiry {
-
-  public class MappingProfile : Profile {
-  
+namespace CustomerInquiry
+{
+  public class MappingProfile : Profile
+  {
     private const string DateTimeFormat = "dd/MM/yyyy HH:mm";
 
-    public MappingProfile() {
+    public MappingProfile()
+    {
       CreateMap<DB.Models.Transaction, Common.DTO.Transaction>()
         .ForMember(dest => dest.Currency,
                   opt => opt.MapFrom(src => Enum.GetName(typeof(CurrencyCode), src.Currency)))
