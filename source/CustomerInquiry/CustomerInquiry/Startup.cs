@@ -1,20 +1,19 @@
 ﻿using AutoMapper;
 using CustomerInquiry.ActionFilters;
 using CustomerInquiry.Common.Interfaces;
-using CustomerInquiry.DB;
 using CustomerInquiry.DB.DataAccess;
+using CustomerInquiry.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CustomerInquiry {
-
-  public class Startup {
-
-    public Startup(IHostingEnvironment env, IConfiguration conf) {
+namespace CustomerInquiry
+{
+  public class Startup
+  {
+    public Startup(IHostingEnvironment env, IConfiguration conf)
+    {
       this.Configuration = conf;
 
       var builder = new ConfigurationBuilder()
@@ -27,16 +26,20 @@ namespace CustomerInquiry {
 
     public IConfiguration Configuration { get; }
 
-    public void ConfigureServices(IServiceCollection services) {
-      var mappingConfig = new MapperConfiguration(mc => {
+    public void ConfigureServices(IServiceCollection services)
+    {
+      var mappingConfig = new MapperConfiguration(mc =>
+      {
         mc.AddProfile(new MappingProfile());
       });
 
       IMapper mapper = mappingConfig.CreateMapper();
+
       services.AddSingleton(mapper);
 
-      services.AddDbContext<CustomerContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+      services.AddDataAccessService(Configuration.GetConnectionString("DefaultConnection"));
+
+      services.AddSwagger();
 
       services.AddTransient<CustomerInquiryFilter>();
 
@@ -46,17 +49,17 @@ namespace CustomerInquiry {
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env) {
-      if (env.IsDevelopment()) {
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    {
+      if (env.IsDevelopment())
+      {
         app.UseDeveloperExceptionPage();
       }
 
       app.UseFileServer();
       app.UseMvcWithDefaultRoute();
 
-      app.Run(async (context) => {
-        await context.Response.WriteAsync("Initial message");
-      });
+      app.UseCustomSwagger();
     }
   }
 }
