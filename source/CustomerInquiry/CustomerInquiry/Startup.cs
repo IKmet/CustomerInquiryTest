@@ -3,9 +3,9 @@ using CustomerInquiry.ActionFilters;
 using CustomerInquiry.Common.Interfaces;
 using CustomerInquiry.DB;
 using CustomerInquiry.DB.DataAccess;
+using CustomerInquiry.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,7 +28,7 @@ namespace CustomerInquiry
 
     public IConfiguration Configuration { get; }
 
-    public void ConfigureServices(IServiceCollection services)
+       public void ConfigureServices(IServiceCollection services)
     {
       var mappingConfig = new MapperConfiguration(mc =>
       {
@@ -40,6 +40,8 @@ namespace CustomerInquiry
 
       services.AddDbContext<CustomerContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+      services.AddSwagger();
 
       services.AddTransient<CustomerInquiryFilter>();
 
@@ -59,10 +61,7 @@ namespace CustomerInquiry
       app.UseFileServer();
       app.UseMvcWithDefaultRoute();
 
-      app.Run(async (context) =>
-      {
-        await context.Response.WriteAsync("Initial message");
-      });
+      app.UseCustomSwagger();
     }
   }
 }
