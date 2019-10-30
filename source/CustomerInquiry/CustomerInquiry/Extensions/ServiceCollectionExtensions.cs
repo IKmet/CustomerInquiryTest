@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using CustomerInquiry.DB;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using System;
 using System.IO;
@@ -16,13 +18,19 @@ namespace CustomerInquiry.Extensions
         {
           Title = "Customer Inquiry API",
           Version = "v1",
-          Contact = new OpenApiContact() { Name = "Temporary Contact", Email = "temporary@contact.com" }
+          Contact = new OpenApiContact() { Name = "Test Person", Email = "test@contact.com" }
         });
 
         var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
         var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
         c.IncludeXmlComments(xmlPath);
       });
+    }
+
+    public static void AddDataAccessService(this IServiceCollection services, string connectionString)
+    {
+      services.AddDbContext<CustomerContext>(options =>
+        options.UseSqlServer(connectionString));
     }
   }
 }

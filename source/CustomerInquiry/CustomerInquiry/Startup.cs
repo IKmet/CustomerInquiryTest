@@ -1,12 +1,10 @@
 ﻿using AutoMapper;
 using CustomerInquiry.ActionFilters;
 using CustomerInquiry.Common.Interfaces;
-using CustomerInquiry.DB;
 using CustomerInquiry.DB.DataAccess;
 using CustomerInquiry.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -28,7 +26,7 @@ namespace CustomerInquiry
 
     public IConfiguration Configuration { get; }
 
-       public void ConfigureServices(IServiceCollection services)
+    public void ConfigureServices(IServiceCollection services)
     {
       var mappingConfig = new MapperConfiguration(mc =>
       {
@@ -36,10 +34,10 @@ namespace CustomerInquiry
       });
 
       IMapper mapper = mappingConfig.CreateMapper();
+
       services.AddSingleton(mapper);
 
-      services.AddDbContext<CustomerContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+      services.AddDataAccessService(Configuration.GetConnectionString("DefaultConnection"));
 
       services.AddSwagger();
 
