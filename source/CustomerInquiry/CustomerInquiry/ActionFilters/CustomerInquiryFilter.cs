@@ -7,17 +7,24 @@ namespace CustomerInquiry.ActionFilters
 {
   public class CustomerInquiryFilter : IActionFilter
   {
-    private const string NullRequestMessage = "No inquiry criteria";
+    private const string EmptyRequestMessage = "No inquiry criteria";
 
     public void OnActionExecuting(ActionExecutingContext context)
     {
       var param = context.ActionArguments.SingleOrDefault(p => p.Value is CustomerInquiryCriteria);
-      var criteriaValue = param.Value as CustomerInquiryCriteria;
 
-      //case when criteriaValue is null is handled by default
-      if (criteriaValue.Id == null && criteriaValue.Email == null)
+      if (param.Value != null)
       {
-        context.Result = new BadRequestObjectResult(NullRequestMessage);
+        var criteriaValue = param.Value as CustomerInquiryCriteria;
+        if (criteriaValue.Id == null && criteriaValue.Email == null)
+        {
+          context.Result = new BadRequestObjectResult(EmptyRequestMessage);
+          return;
+        }
+      }
+      else
+      {
+        context.Result = new BadRequestObjectResult(EmptyRequestMessage);
         return;
       }
 
