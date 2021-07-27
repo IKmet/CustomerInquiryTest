@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using CustomerInquiry.DB.Enums;
 using System;
+using CustomerInquiry.Common.Enums;
 
 namespace CustomerInquiry
 {
@@ -10,7 +10,7 @@ namespace CustomerInquiry
 
         public MappingProfile()
         {
-            CreateMap<DB.Models.Transaction, Common.DTO.Transaction>()
+            CreateMap<Infrastructure.DataAccess.SQL.Models.Transaction, Common.DTO.Transaction>()
               .ForMember(dest => dest.Currency,
                         opt => opt.MapFrom(src => Enum.GetName(typeof(CurrencyCode), src.Currency)))
               .ForMember(dest => dest.Status,

@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29009.5
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerInquiry", "CustomerInquiry\CustomerInquiry.csproj", "{2C6D6D07-DE89-4AA2-89D9-0BBE049D67A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerInquiry", "CustomerInquiry\CustomerInquiry.csproj", "{2C6D6D07-DE89-4AA2-89D9-0BBE049D67A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerInquiry.DB", "CustomerInquiry.DB\CustomerInquiry.DB.csproj", "{02748DBD-ED40-4CCB-B936-25AF3B4AB810}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerInquiry.Infrastructure", "CustomerInquiry.DB\CustomerInquiry.Infrastructure.csproj", "{02748DBD-ED40-4CCB-B936-25AF3B4AB810}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerInquiry.Common", "CustomerInquiry.Common\CustomerInquiry.Common.csproj", "{A57CACE1-706C-4DCB-AA27-A45BAEE821B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerInquiry.Common", "CustomerInquiry.Common\CustomerInquiry.Common.csproj", "{A57CACE1-706C-4DCB-AA27-A45BAEE821B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

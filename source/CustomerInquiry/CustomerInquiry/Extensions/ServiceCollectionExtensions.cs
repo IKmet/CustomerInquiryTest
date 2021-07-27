@@ -1,4 +1,4 @@
-﻿using CustomerInquiry.DB;
+﻿using CustomerInquiry.Infrastructure.DataAccess.SQL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;

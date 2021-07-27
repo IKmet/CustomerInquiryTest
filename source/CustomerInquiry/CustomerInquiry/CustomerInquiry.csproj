@@ -27,7 +27,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CustomerInquiry.Common\CustomerInquiry.Common.csproj" />
-    <ProjectReference Include="..\CustomerInquiry.DB\CustomerInquiry.DB.csproj" />
+    <ProjectReference Include="..\CustomerInquiry.DB\CustomerInquiry.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

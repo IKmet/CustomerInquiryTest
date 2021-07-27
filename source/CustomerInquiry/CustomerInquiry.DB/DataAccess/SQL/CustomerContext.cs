@@ -1,7 +1,7 @@
-﻿using CustomerInquiry.DB.Models;
+﻿using CustomerInquiry.Infrastructure.DataAccess.SQL.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace CustomerInquiry.DB
+namespace CustomerInquiry.Infrastructure.DataAccess.SQL
 {
     public class CustomerContext : DbContext
     {

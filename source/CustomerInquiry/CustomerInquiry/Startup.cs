@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using CustomerInquiry.ActionFilters;
 using CustomerInquiry.Common.Interfaces;
-using CustomerInquiry.DB.DataAccess;
+using CustomerInquiry.Infrastructure.DataAccess.SQL;
 using CustomerInquiry.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -43,7 +43,7 @@ namespace CustomerInquiry
 
             services.AddTransient<CustomerInquiryFilter>();
 
-            services.AddTransient<ICustomerInfoProvider, CustomerInfoProvider>();
+            services.AddTransient<ICustomerInfoProvider, SQLCustomerInfoProvider>();
 
             services.AddMvc();
         }

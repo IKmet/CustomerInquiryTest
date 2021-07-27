@@ -5,9 +5,9 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CustomerInquiry.DB.DataAccess
+namespace CustomerInquiry.Infrastructure.DataAccess.SQL
 {
-    public class CustomerInfoProvider : ICustomerInfoProvider
+    public class SQLCustomerInfoProvider : ICustomerInfoProvider
     {
         private const int AmountRecentTransactions = 5;
 
@@ -17,7 +17,7 @@ namespace CustomerInquiry.DB.DataAccess
 
         private readonly IMapper mapper;
 
-        public CustomerInfoProvider(CustomerContext context, IMapper mapper)
+        public SQLCustomerInfoProvider(CustomerContext context, IMapper mapper)
         {
             this.context = context;
             this.mapper = mapper;

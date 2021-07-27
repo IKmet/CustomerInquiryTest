@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace CustomerInquiry.DB.Migrations
+namespace CustomerInquiry.Infrastructure.DataAccess.SQL.Migrations
 {
     public partial class CreationDb : Migration
     {

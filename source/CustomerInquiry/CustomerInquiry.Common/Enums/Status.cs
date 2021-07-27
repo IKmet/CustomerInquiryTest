@@ -1,4 +1,4 @@
-﻿namespace CustomerInquiry.DB.Enums
+﻿namespace CustomerInquiry.Common.Enums
 {
     public enum Status
     {

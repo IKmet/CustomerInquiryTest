@@ -1,9 +1,9 @@
-﻿using CustomerInquiry.DB.Enums;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using CustomerInquiry.Common.Enums;
 
-namespace CustomerInquiry.DB.Models
+namespace CustomerInquiry.Infrastructure.DataAccess.SQL.Models
 {
     public class Transaction
     {
