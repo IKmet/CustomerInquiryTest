@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 
 namespace CustomerInquiry.Common.Interfaces
 {
-  public interface ICustomerInfoProvider
-  {
-    Task<Customer> GetRecentCustomerTransactions(CustomerInquiryCriteria customer);
-  }
+    public interface ICustomerInfoProvider
+    {
+        Task<Customer> GetRecentCustomerTransactions(CustomerInquiryCriteria customer);
+    }
 }

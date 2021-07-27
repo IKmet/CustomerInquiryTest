@@ -4,22 +4,22 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CustomerInquiry.DB.Models
 {
-  public class Customer
-  {
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
+    public class Customer
+    {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
 
-    [Required]
-    [MaxLength(30)]
-    public string Name { get; set; }
+        [Required]
+        [MaxLength(30)]
+        public string Name { get; set; }
 
-    [Required]
-    [MaxLength(25)]
-    public string Email { get; set; }
+        [Required]
+        [MaxLength(25)]
+        public string Email { get; set; }
 
-    public long MobileNumber { get; set; }
+        public long MobileNumber { get; set; }
 
-    public ICollection<Transaction> Transactions { get; set; }
-  }
+        public ICollection<Transaction> Transactions { get; set; }
+    }
 }
