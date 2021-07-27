@@ -4,6 +4,8 @@ using CustomerInquiry.Common.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using CustomerInquiry.Common.Options;
+using Microsoft.Extensions.Options;
 
 namespace CustomerInquiry.Controllers
 {
@@ -13,7 +15,7 @@ namespace CustomerInquiry.Controllers
     {
         private readonly ICustomerInfoProvider customerInfoProvider;
 
-        public CustomerController(ICustomerInfoProvider customerInfoProvider)
+        public CustomerController(ICustomerInfoProvider customerInfoProvider, IOptions<AwsOptions> config)
         {
             this.customerInfoProvider = customerInfoProvider;
         }
